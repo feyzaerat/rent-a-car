@@ -1,5 +1,13 @@
-.App {
+.App, Space, Card {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+:where(.css-dev-only-do-not-override-2rgkd4).ant-card .ant-card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
