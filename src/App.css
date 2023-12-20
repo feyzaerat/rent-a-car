@@ -2,7 +2,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 2rem 4rem;
 }
@@ -11,5 +10,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+}
+:where(.css-dev-only-do-not-override-2rgkd4).ant-space-align-center {
+  align-items: flex-start;
+}
+
+li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 0.5rem;
+}
+li button{
+  margin-left:2rem
+}
+.flexRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexRow button{
+  margin-left:0.5rem
+}
+
+.success{
+  color: #fff;
+  background-color: #52c41a;
+  border-color: #52c41a
+}
+
+.danger {
+  color: #fff;
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
 }
