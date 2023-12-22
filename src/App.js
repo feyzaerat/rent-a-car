@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Flex, Input } from "antd";
+import Navbar from './Navbar';
 
 import "./App.css";
 
@@ -34,8 +35,11 @@ export default function App() {
   const removeActivity = (activity) => {
     setActivityList(activityList.filter((i) => i !== activity));
   };
+  let id = 1;
+
   return (
     <>
+     <Navbar name="Feyza" id={id} />
       <div className="App">
         <Space size={16}>
           <Card title="Counter" style={{ width: 300 }}>
