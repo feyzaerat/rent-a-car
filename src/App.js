@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Flex, Input } from "antd";
-import Navbar from './Navbar';
+import Navbar from "./components/Navbar/Navbar";
+import ProductCard from "./ProductCard";
 
 import "./App.css";
 
@@ -39,7 +40,7 @@ export default function App() {
 
   return (
     <>
-     <Navbar name="Feyza" id={id} />
+      <Navbar name="Feyza" id={id} />
       <div className="App">
         <Space size={16}>
           <Card title="Counter" style={{ width: 300 }}>
@@ -97,6 +98,15 @@ export default function App() {
               </Flex>
             </Flex>
           </Card>
+        </Space>
+        <Space size={16}>
+          <Flex gap="small" wrap="wrap">
+            
+          <Card className="ProductCard"> <ProductCard name="Laptop" price={5000} /></Card>
+          <Card className="ProductCard"> <ProductCard name="Mouse" price={300} /></Card>
+          <Card className="ProductCard"> <ProductCard name="Klavye (Blue Switch)" price={200} /></Card>
+           
+          </Flex>
         </Space>
       </div>
     </>
