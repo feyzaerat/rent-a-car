@@ -1,114 +1,17 @@
-import { useEffect, useState } from "react";
-import { Card, Space, Button, Flex, Input } from "antd";
-import Navbar from "./components/Navbar/Navbar";
-import ProductCard from "./ProductCard";
+import "bootstrap/dist/css/bootstrap.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Homepage from "./pages/Homepage/Homepage"
+import Products from "./pages/Products/Products"
 
-import "./App.css";
+
 
 export default function App() {
-  const [total, setTotal] = useState(0);
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Homepage />}></Route>
+      <Route path="/products" element={<Products />}></Route>
+      <Route path="*" element={<div>Not found</div>}></Route>
+    </Routes>
+  </BrowserRouter>
 
-  useEffect(() => {
-    console.log(total);
-  }, [total]);
-
-  const increase = () => {
-    setTotal(total + 1);
-  };
-  const decrease = () => {
-    setTotal(total - 1);
-  };
-
-  const [activity, setActivity] = useState("");
-  const [activityList, setActivityList] = useState([]);
-  const clearActivity = () => {
-    setActivity("");
-  };
-  const addActivity = () => {
-    setActivityList([...activityList, activity]);
-    clearActivity();
-  };
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      addActivity();
-    }
-  };
-  const removeActivity = (activity) => {
-    setActivityList(activityList.filter((i) => i !== activity));
-  };
-  let id = 1;
-
-  return (
-    <>
-      <Navbar name="Feyza" id={id} />
-      <div className="App">
-        <Space size={16}>
-          <Card title="Counter" style={{ width: 300 }}>
-            <Flex gap="small" wrap="wrap">
-              <p>{total}</p>
-            </Flex>
-            <Flex gap="small" wrap="wrap">
-              <Button type="primary" onClick={increase}>
-                Increase
-              </Button>
-              <Button type="primary" onClick={decrease}>
-                Decrease
-              </Button>
-            </Flex>
-          </Card>
-
-          <Card title="TO DO" style={{ width: 300 }}>
-            <Flex gap="small" wrap="wrap">
-              <div gap="small" wrap="wrap" className="flexRow">
-                <Input
-                  type="text"
-                  value={activity}
-                  onChange={(event) => {
-                    setActivity(event.target.value);
-                  }}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Enter an activity..."
-                />
-                <Button
-                  className="success"
-                  onKeyDown={handleKeyDown}
-                  onClick={() => {
-                    addActivity();
-                  }}
-                >
-                  +
-                </Button>
-              </div>
-              <Flex gap="small" wrap="wrap">
-                <ul>
-                  {activityList.map((element) => (
-                    <li key={element}>
-                      {element}{" "}
-                      <Button
-                        className="danger"
-                        onClick={() => {
-                          removeActivity(element);
-                        }}
-                      >
-                        X
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              </Flex>
-            </Flex>
-          </Card>
-        </Space>
-        <Space size={16}>
-          <Flex gap="small" wrap="wrap">
-            
-          <Card className="ProductCard"> <ProductCard name="Laptop" price={5000} /></Card>
-          <Card className="ProductCard"> <ProductCard name="Mouse" price={300} /></Card>
-          <Card className="ProductCard"> <ProductCard name="Klavye (Blue Switch)" price={200} /></Card>
-           
-          </Flex>
-        </Space>
-      </div>
-    </>
-  );
 }
